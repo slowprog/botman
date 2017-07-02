@@ -159,6 +159,14 @@ class BotMan
     }
 
     /**
+     * @return CacheInterface
+     */
+    public function getCache()
+    {
+        return $this->cache;
+    }
+
+    /**
      * Retrieve the chat message.
      *
      * @return array
@@ -362,6 +370,7 @@ class BotMan
                     $this->isChannelValid($channelName, $messageData['channel']) &&
                     $this->loadedConversation === false
                 ) {
+
                     $this->message = $message;
                     $heardMessage = true;
                     $parameterNames = $this->compileParameterNames($pattern);
